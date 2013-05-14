@@ -8,11 +8,15 @@ import com.eclipsesource.makeithappen.model.task.TaskPackage;
 import com.eclipsesource.makeithappen.model.task.User;
 
 import com.eclipsesource.makeithappen.model.task.UserGroup;
+import com.eclipsesource.makeithappen.model.task.util.TaskValidator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -95,6 +99,15 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 		// Initialize created meta-data
 		theTaskPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theTaskPackage, 
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return TaskValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theTaskPackage.freeze();
 
@@ -138,6 +151,24 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 	 */
 	public EReference getTask_SubTasks() {
 		return (EReference)taskEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_Done() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTask__HasName__DiagnosticChain_Map() {
+		return taskEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -264,6 +295,8 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 		createEReference(taskEClass, TASK__ASSIGNEE);
 		createEAttribute(taskEClass, TASK__DUE_DATE);
 		createEReference(taskEClass, TASK__SUB_TASKS);
+		createEAttribute(taskEClass, TASK__DONE);
+		createEOperation(taskEClass, TASK___HAS_NAME__DIAGNOSTICCHAIN_MAP);
 
 		userEClass = createEClass(USER);
 		createEAttribute(userEClass, USER__FIRST_NAME);
@@ -312,6 +345,16 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 		initEReference(getTask_Assignee(), this.getUser(), this.getUser_Tasks(), "assignee", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_DueDate(), ecorePackage.getEDate(), "dueDate", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_SubTasks(), this.getTask(), null, "subTasks", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Done(), ecorePackage.getEBoolean(), "done", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = initEOperation(getTask__HasName__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "hasName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(userEClass, User.class, "User", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUser_FirstName(), ecorePackage.getEString(), "firstName", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -7,16 +7,23 @@
   <foreignModel>task.ecore</foreignModel>
   <genPackages prefix="Task" basePackage="com.eclipsesource.makeithappen.model" disposableProviderFactory="true"
       ecorePackage="task.ecore#/">
-    <genClasses ecoreClass="task.ecore#//Task">
+    <genClasses image="false" ecoreClass="task.ecore#//Task">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Task/assignee"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//Task/subTasks"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/dueDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Task/assignee"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/dueDate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//Task/subTasks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/done"/>
     </genClasses>
     <genClasses ecoreClass="task.ecore#//User">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//User/firstName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//User/lastName"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//User/tasks"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//User/eMails"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute task.ecore#//User/eMails"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//UserGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//UserGroup/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//UserGroup/users"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

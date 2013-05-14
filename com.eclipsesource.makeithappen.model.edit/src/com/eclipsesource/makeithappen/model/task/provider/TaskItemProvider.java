@@ -67,6 +67,7 @@ public class TaskItemProvider
 			addDescriptionPropertyDescriptor(object);
 			addAssigneePropertyDescriptor(object);
 			addDueDatePropertyDescriptor(object);
+			addDonePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -160,6 +161,28 @@ public class TaskItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Done feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDonePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_done_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_done_feature", "_UI_Task_type"),
+				 TaskPackage.Literals.TASK__DONE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -193,11 +216,17 @@ public class TaskItemProvider
 	 * This returns Task.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Task"));
+		Task task = (Task) object;
+		if(task.isDone()){
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/bullet_green.png"));
+		}
+		else{
+			return overlayImage(object, getResourceLocator().getImage("full/obj16/bullet_red.png"));
+		}
 	}
 
 	/**
@@ -229,6 +258,7 @@ public class TaskItemProvider
 			case TaskPackage.TASK__NAME:
 			case TaskPackage.TASK__DESCRIPTION:
 			case TaskPackage.TASK__DUE_DATE:
+			case TaskPackage.TASK__DONE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case TaskPackage.TASK__SUB_TASKS:

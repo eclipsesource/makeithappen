@@ -4,6 +4,7 @@ package com.eclipsesource.makeithappen.model.task;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -112,13 +113,31 @@ public interface TaskPackage extends EPackage {
 	int TASK__SUB_TASKS = 4;
 
 	/**
+	 * The feature id for the '<em><b>Done</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__DONE = 5;
+
+	/**
 	 * The number of structural features of the '<em>Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_FEATURE_COUNT = 5;
+	int TASK_FEATURE_COUNT = 6;
+
+	/**
+	 * The operation id for the '<em>Has Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___HAS_NAME__DIAGNOSTICCHAIN_MAP = 0;
 
 	/**
 	 * The number of operations of the '<em>Task</em>' class.
@@ -127,7 +146,7 @@ public interface TaskPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_OPERATION_COUNT = 0;
+	int TASK_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link com.eclipsesource.makeithappen.model.task.impl.UserImpl <em>User</em>}' class.
@@ -283,6 +302,27 @@ public interface TaskPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTask_SubTasks();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.eclipsesource.makeithappen.model.task.Task#isDone <em>Done</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Done</em>'.
+	 * @see com.eclipsesource.makeithappen.model.task.Task#isDone()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_Done();
+
+	/**
+	 * Returns the meta object for the '{@link com.eclipsesource.makeithappen.model.task.Task#hasName(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Has Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Has Name</em>' operation.
+	 * @see com.eclipsesource.makeithappen.model.task.Task#hasName(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getTask__HasName__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.eclipsesource.makeithappen.model.task.Task#getDueDate <em>Due Date</em>}'.
@@ -448,6 +488,22 @@ public interface TaskPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TASK__SUB_TASKS = eINSTANCE.getTask_SubTasks();
+
+		/**
+		 * The meta object literal for the '<em><b>Done</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__DONE = eINSTANCE.getTask_Done();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TASK___HAS_NAME__DIAGNOSTICCHAIN_MAP = eINSTANCE.getTask__HasName__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '<em><b>Due Date</b></em>' attribute feature.

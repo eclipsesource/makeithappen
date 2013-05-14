@@ -2,26 +2,28 @@
  */
 package com.eclipsesource.makeithappen.model.task.impl;
 
-import com.eclipsesource.makeithappen.model.task.Task;
-import com.eclipsesource.makeithappen.model.task.TaskPackage;
-import com.eclipsesource.makeithappen.model.task.User;
-
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import com.eclipsesource.makeithappen.model.task.Task;
+import com.eclipsesource.makeithappen.model.task.TaskPackage;
+import com.eclipsesource.makeithappen.model.task.User;
+import com.eclipsesource.makeithappen.model.task.util.TaskValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.TaskImpl#getAssignee <em>Assignee</em>}</li>
  *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.TaskImpl#getDueDate <em>Due Date</em>}</li>
  *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.TaskImpl#getSubTasks <em>Sub Tasks</em>}</li>
+ *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.TaskImpl#isDone <em>Done</em>}</li>
  * </ul>
  * </p>
  *
@@ -120,6 +123,26 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * @ordered
 	 */
 	protected EList<Task> subTasks;
+
+	/**
+	 * The default value of the '{@link #isDone() <em>Done</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDone()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DONE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDone() <em>Done</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDone()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean done = DONE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -238,6 +261,48 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isDone() {
+		return done;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDone(boolean newDone) {
+		boolean oldDone = done;
+		done = newDone;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__DONE, oldDone, done));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean hasName(DiagnosticChain chain, Map<?, ?> context) {
+		if (getName()==null||getName().equals("")) {
+			if (chain != null) {
+				chain.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 TaskValidator.DIAGNOSTIC_SOURCE,
+						 TaskValidator.TASK__HAS_NAME,
+						 "Task needs to have a name",
+						 new Object [] { this, TaskPackage.eINSTANCE.getTask_Name() }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Date getDueDate() {
 		return dueDate;
 	}
@@ -326,6 +391,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return getDueDate();
 			case TaskPackage.TASK__SUB_TASKS:
 				return getSubTasks();
+			case TaskPackage.TASK__DONE:
+				return isDone();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -355,6 +422,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				getSubTasks().clear();
 				getSubTasks().addAll((Collection<? extends Task>)newValue);
 				return;
+			case TaskPackage.TASK__DONE:
+				setDone((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -382,6 +452,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 			case TaskPackage.TASK__SUB_TASKS:
 				getSubTasks().clear();
 				return;
+			case TaskPackage.TASK__DONE:
+				setDone(DONE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -404,8 +477,24 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				return DUE_DATE_EDEFAULT == null ? dueDate != null : !DUE_DATE_EDEFAULT.equals(dueDate);
 			case TaskPackage.TASK__SUB_TASKS:
 				return subTasks != null && !subTasks.isEmpty();
+			case TaskPackage.TASK__DONE:
+				return done != DONE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case TaskPackage.TASK___HAS_NAME__DIAGNOSTICCHAIN_MAP:
+				return hasName((DiagnosticChain)arguments.get(0), (Map<?, ?>)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -424,6 +513,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 		result.append(description);
 		result.append(", dueDate: ");
 		result.append(dueDate);
+		result.append(", done: ");
+		result.append(done);
 		result.append(')');
 		return result.toString();
 	}
