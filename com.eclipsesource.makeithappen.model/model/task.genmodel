@@ -14,11 +14,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/dueDate"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//Task/subTasks"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/done"/>
+      <genOperations ecoreOperation="task.ecore#//Task/hasName">
+        <genParameters ecoreParameter="task.ecore#//Task/hasName/chain"/>
+        <genParameters ecoreParameter="task.ecore#//Task/hasName/context"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="task.ecore#//User">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//User/firstName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//User/lastName"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//User/tasks"/>
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference task.ecore#//User/tasks"/>
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute task.ecore#//User/eMails"/>
     </genClasses>
     <genClasses ecoreClass="task.ecore#//UserGroup">

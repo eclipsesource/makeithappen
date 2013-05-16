@@ -3,6 +3,7 @@
 package com.eclipsesource.makeithappen.model.task.provider;
 
 
+import com.eclipsesource.makeithappen.model.task.TaskFactory;
 import com.eclipsesource.makeithappen.model.task.TaskPackage;
 import com.eclipsesource.makeithappen.model.task.User;
 
@@ -167,6 +168,7 @@ public class UserItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(TaskPackage.Literals.USER__TASKS);
 			childrenFeatures.add(TaskPackage.Literals.USER__EMAILS);
 		}
 		return childrenFeatures;
@@ -253,6 +255,11 @@ public class UserItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TaskPackage.Literals.USER__TASKS,
+				 TaskFactory.eINSTANCE.createTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
