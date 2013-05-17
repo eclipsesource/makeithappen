@@ -14,8 +14,4 @@ public class MailOpener implements ECPModelElementOpener {
 		Program.launch("mailto:"+value);
 	}
 
-	
-
-
-
 }
