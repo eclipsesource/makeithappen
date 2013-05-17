@@ -5,10 +5,9 @@
          point="org.eclipse.emf.ecp.ui.modelElementOpener">
       <modelElementOpener
             class="com.eclipsesource.makeithappen.ui.MailOpener">
-         <staticTester
-               modelElement="java.lang.Object"
-               priority="1">
-         </staticTester>
+         <dynamicTester
+               tester="com.eclipsesource.makeithappen.ui.MailOpenTester">
+         </dynamicTester>
       </modelElementOpener>
    </extension>
 
