@@ -10,5 +10,20 @@
          </dynamicTester>
       </modelElementOpener>
    </extension>
+   <extension
+         point="org.eclipse.emf.ecp.edit.controls">
+      <control
+            class="com.eclipsesource.makeithappen.ui.EmailControl"
+            id="com.eclipsesource.makeithappen.ui.emailcontrol"
+            showLabel="false">
+         <staticTest
+               priority="1"
+               singleValue="true"
+               supportedClassType="java.lang.String"
+               supportedEObject="com.eclipsesource.makeithappen.model.task.User"
+               supportedFeature="eMails">
+         </staticTest>
+      </control>
+   </extension>
 
 </plugin>
