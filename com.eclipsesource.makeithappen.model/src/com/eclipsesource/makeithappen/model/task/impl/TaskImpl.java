@@ -213,33 +213,11 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAssignee(User newAssignee, NotificationChain msgs) {
+	public void setAssignee(User newAssignee) {
 		User oldAssignee = assignee;
 		assignee = newAssignee;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__ASSIGNEE, oldAssignee, newAssignee);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAssignee(User newAssignee) {
-		if (newAssignee != assignee) {
-			NotificationChain msgs = null;
-			if (assignee != null)
-				msgs = ((InternalEObject)assignee).eInverseRemove(this, TaskPackage.USER__TASKS, User.class, msgs);
-			if (newAssignee != null)
-				msgs = ((InternalEObject)newAssignee).eInverseAdd(this, TaskPackage.USER__TASKS, User.class, msgs);
-			msgs = basicSetAssignee(newAssignee, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__ASSIGNEE, newAssignee, newAssignee));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__ASSIGNEE, oldAssignee, assignee));
 	}
 
 	/**
@@ -344,26 +322,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case TaskPackage.TASK__ASSIGNEE:
-				if (assignee != null)
-					msgs = ((InternalEObject)assignee).eInverseRemove(this, TaskPackage.USER__TASKS, User.class, msgs);
-				return basicSetAssignee((User)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TaskPackage.TASK__ASSIGNEE:
-				return basicSetAssignee(null, msgs);
 			case TaskPackage.TASK__SUB_TASKS:
 				return ((InternalEList<?>)getSubTasks()).basicRemove(otherEnd, msgs);
 		}

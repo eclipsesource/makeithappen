@@ -3,13 +3,10 @@
 package com.eclipsesource.makeithappen.model.task.provider;
 
 
-import com.eclipsesource.makeithappen.model.task.TaskFactory;
 import com.eclipsesource.makeithappen.model.task.TaskPackage;
 import com.eclipsesource.makeithappen.model.task.User;
-
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -62,7 +59,7 @@ public class UserItemProvider
 
 			addFirstNamePropertyDescriptor(object);
 			addLastNamePropertyDescriptor(object);
-			addTasksPropertyDescriptor(object);
+			addGenderPropertyDescriptor(object);
 			addEMailsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -113,23 +110,23 @@ public class UserItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Tasks feature.
+	 * This adds a property descriptor for the Gender feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTasksPropertyDescriptor(Object object) {
+	protected void addGenderPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_User_tasks_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_User_tasks_feature", "_UI_User_type"),
-				 TaskPackage.Literals.USER__TASKS,
+				 getString("_UI_User_gender_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_User_gender_feature", "_UI_User_type"),
+				 TaskPackage.Literals.USER__GENDER,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -168,7 +165,6 @@ public class UserItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TaskPackage.Literals.USER__TASKS);
 			childrenFeatures.add(TaskPackage.Literals.USER__EMAILS);
 		}
 		return childrenFeatures;
@@ -236,6 +232,7 @@ public class UserItemProvider
 		switch (notification.getFeatureID(User.class)) {
 			case TaskPackage.USER__FIRST_NAME:
 			case TaskPackage.USER__LAST_NAME:
+			case TaskPackage.USER__GENDER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case TaskPackage.USER__EMAILS:
@@ -255,11 +252,6 @@ public class UserItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TaskPackage.Literals.USER__TASKS,
-				 TaskFactory.eINSTANCE.createTask()));
 
 		newChildDescriptors.add
 			(createChildParameter

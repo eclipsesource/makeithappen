@@ -99,6 +99,8 @@ public class TaskValidator extends EObjectValidator {
 				return validateUser((User)value, diagnostics, context);
 			case TaskPackage.USER_GROUP:
 				return validateUserGroup((UserGroup)value, diagnostics, context);
+			case TaskPackage.GENDER:
+				return validateGender((Gender)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -149,6 +151,15 @@ public class TaskValidator extends EObjectValidator {
 	 */
 	public boolean validateUserGroup(UserGroup userGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(userGroup, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGender(Gender gender, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
 	}
 
 	/**

@@ -2,26 +2,18 @@
  */
 package com.eclipsesource.makeithappen.model.task.impl;
 
+import com.eclipsesource.makeithappen.model.task.Gender;
 import com.eclipsesource.makeithappen.model.task.Task;
 import com.eclipsesource.makeithappen.model.task.TaskPackage;
 import com.eclipsesource.makeithappen.model.task.User;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,8 +24,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.UserImpl#getFirstName <em>First Name</em>}</li>
  *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.UserImpl#getLastName <em>Last Name</em>}</li>
- *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.UserImpl#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.UserImpl#getGender <em>Gender</em>}</li>
  *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.UserImpl#getEMails <em>EMails</em>}</li>
+ *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.UserImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,14 +74,24 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	protected String lastName = LAST_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' reference list.
+	 * The default value of the '{@link #getGender() <em>Gender</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTasks()
+	 * @see #getGender()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Task> tasks;
+	protected static final Gender GENDER_EDEFAULT = Gender.MALE;
+
+	/**
+	 * The cached value of the '{@link #getGender() <em>Gender</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGender()
+	 * @generated
+	 * @ordered
+	 */
+	protected Gender gender = GENDER_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getEMails() <em>EMails</em>}' attribute list.
@@ -99,6 +102,16 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * @ordered
 	 */
 	protected EList<String> eMails;
+
+	/**
+	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTasks()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Task> tasks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,11 +179,20 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Task> getTasks() {
-		if (tasks == null) {
-			tasks = new EObjectWithInverseResolvingEList<Task>(Task.class, this, TaskPackage.USER__TASKS, TaskPackage.TASK__ASSIGNEE);
-		}
-		return tasks;
+	public Gender getGender() {
+		return gender;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGender(Gender newGender) {
+		Gender oldGender = gender;
+		gender = newGender == null ? GENDER_EDEFAULT : newGender;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.USER__GENDER, oldGender, gender));
 	}
 
 	/**
@@ -190,28 +212,11 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case TaskPackage.USER__TASKS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTasks()).basicAdd(otherEnd, msgs);
+	public EList<Task> getTasks() {
+		if (tasks == null) {
+			tasks = new EObjectResolvingEList<Task>(Task.class, this, TaskPackage.USER__TASKS);
 		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case TaskPackage.USER__TASKS:
-				return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		return tasks;
 	}
 
 	/**
@@ -226,10 +231,12 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 				return getFirstName();
 			case TaskPackage.USER__LAST_NAME:
 				return getLastName();
-			case TaskPackage.USER__TASKS:
-				return getTasks();
+			case TaskPackage.USER__GENDER:
+				return getGender();
 			case TaskPackage.USER__EMAILS:
 				return getEMails();
+			case TaskPackage.USER__TASKS:
+				return getTasks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -249,13 +256,16 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 			case TaskPackage.USER__LAST_NAME:
 				setLastName((String)newValue);
 				return;
-			case TaskPackage.USER__TASKS:
-				getTasks().clear();
-				getTasks().addAll((Collection<? extends Task>)newValue);
+			case TaskPackage.USER__GENDER:
+				setGender((Gender)newValue);
 				return;
 			case TaskPackage.USER__EMAILS:
 				getEMails().clear();
 				getEMails().addAll((Collection<? extends String>)newValue);
+				return;
+			case TaskPackage.USER__TASKS:
+				getTasks().clear();
+				getTasks().addAll((Collection<? extends Task>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -275,11 +285,14 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 			case TaskPackage.USER__LAST_NAME:
 				setLastName(LAST_NAME_EDEFAULT);
 				return;
-			case TaskPackage.USER__TASKS:
-				getTasks().clear();
+			case TaskPackage.USER__GENDER:
+				setGender(GENDER_EDEFAULT);
 				return;
 			case TaskPackage.USER__EMAILS:
 				getEMails().clear();
+				return;
+			case TaskPackage.USER__TASKS:
+				getTasks().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -297,10 +310,12 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 				return FIRST_NAME_EDEFAULT == null ? firstName != null : !FIRST_NAME_EDEFAULT.equals(firstName);
 			case TaskPackage.USER__LAST_NAME:
 				return LAST_NAME_EDEFAULT == null ? lastName != null : !LAST_NAME_EDEFAULT.equals(lastName);
-			case TaskPackage.USER__TASKS:
-				return tasks != null && !tasks.isEmpty();
+			case TaskPackage.USER__GENDER:
+				return gender != GENDER_EDEFAULT;
 			case TaskPackage.USER__EMAILS:
 				return eMails != null && !eMails.isEmpty();
+			case TaskPackage.USER__TASKS:
+				return tasks != null && !tasks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -319,6 +334,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 		result.append(firstName);
 		result.append(", lastName: ");
 		result.append(lastName);
+		result.append(", gender: ");
+		result.append(gender);
 		result.append(", eMails: ");
 		result.append(eMails);
 		result.append(')');

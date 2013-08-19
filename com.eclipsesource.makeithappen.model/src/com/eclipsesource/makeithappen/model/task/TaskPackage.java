@@ -4,6 +4,7 @@ package com.eclipsesource.makeithappen.model.task;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -177,13 +178,13 @@ public interface TaskPackage extends EPackage {
 	int USER__LAST_NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
+	 * The feature id for the '<em><b>Gender</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER__TASKS = 2;
+	int USER__GENDER = 2;
 
 	/**
 	 * The feature id for the '<em><b>EMails</b></em>' attribute list.
@@ -195,13 +196,22 @@ public interface TaskPackage extends EPackage {
 	int USER__EMAILS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__TASKS = 4;
+
+	/**
 	 * The number of structural features of the '<em>User</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_FEATURE_COUNT = 4;
+	int USER_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>User</em>' class.
@@ -258,6 +268,17 @@ public interface TaskPackage extends EPackage {
 	 * @ordered
 	 */
 	int USER_GROUP_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '{@link com.eclipsesource.makeithappen.model.task.Gender <em>Gender</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.eclipsesource.makeithappen.model.task.Gender
+	 * @see com.eclipsesource.makeithappen.model.task.impl.TaskPackageImpl#getGender()
+	 * @generated
+	 */
+	int GENDER = 3;
 
 
 	/**
@@ -379,15 +400,15 @@ public interface TaskPackage extends EPackage {
 	EAttribute getUser_LastName();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.eclipsesource.makeithappen.model.task.User#getTasks <em>Tasks</em>}'.
+	 * Returns the meta object for the attribute '{@link com.eclipsesource.makeithappen.model.task.User#getGender <em>Gender</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Tasks</em>'.
-	 * @see com.eclipsesource.makeithappen.model.task.User#getTasks()
+	 * @return the meta object for the attribute '<em>Gender</em>'.
+	 * @see com.eclipsesource.makeithappen.model.task.User#getGender()
 	 * @see #getUser()
 	 * @generated
 	 */
-	EReference getUser_Tasks();
+	EAttribute getUser_Gender();
 
 	/**
 	 * Returns the meta object for the attribute list '{@link com.eclipsesource.makeithappen.model.task.User#getEMails <em>EMails</em>}'.
@@ -399,6 +420,17 @@ public interface TaskPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getUser_EMails();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.eclipsesource.makeithappen.model.task.User#getTasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Tasks</em>'.
+	 * @see com.eclipsesource.makeithappen.model.task.User#getTasks()
+	 * @see #getUser()
+	 * @generated
+	 */
+	EReference getUser_Tasks();
 
 	/**
 	 * Returns the meta object for class '{@link com.eclipsesource.makeithappen.model.task.UserGroup <em>User Group</em>}'.
@@ -431,6 +463,16 @@ public interface TaskPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUserGroup_Users();
+
+	/**
+	 * Returns the meta object for enum '{@link com.eclipsesource.makeithappen.model.task.Gender <em>Gender</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Gender</em>'.
+	 * @see com.eclipsesource.makeithappen.model.task.Gender
+	 * @generated
+	 */
+	EEnum getGender();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -548,12 +590,12 @@ public interface TaskPackage extends EPackage {
 		EAttribute USER__LAST_NAME = eINSTANCE.getUser_LastName();
 
 		/**
-		 * The meta object literal for the '<em><b>Tasks</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Gender</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference USER__TASKS = eINSTANCE.getUser_Tasks();
+		EAttribute USER__GENDER = eINSTANCE.getUser_Gender();
 
 		/**
 		 * The meta object literal for the '<em><b>EMails</b></em>' attribute list feature.
@@ -562,6 +604,14 @@ public interface TaskPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute USER__EMAILS = eINSTANCE.getUser_EMails();
+
+		/**
+		 * The meta object literal for the '<em><b>Tasks</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference USER__TASKS = eINSTANCE.getUser_Tasks();
 
 		/**
 		 * The meta object literal for the '{@link com.eclipsesource.makeithappen.model.task.impl.UserGroupImpl <em>User Group</em>}' class.
@@ -588,6 +638,16 @@ public interface TaskPackage extends EPackage {
 		 * @generated
 		 */
 		EReference USER_GROUP__USERS = eINSTANCE.getUserGroup_Users();
+
+		/**
+		 * The meta object literal for the '{@link com.eclipsesource.makeithappen.model.task.Gender <em>Gender</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.eclipsesource.makeithappen.model.task.Gender
+		 * @see com.eclipsesource.makeithappen.model.task.impl.TaskPackageImpl#getGender()
+		 * @generated
+		 */
+		EEnum GENDER = eINSTANCE.getGender();
 
 	}
 

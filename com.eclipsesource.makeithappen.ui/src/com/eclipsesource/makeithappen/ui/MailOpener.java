@@ -1,6 +1,5 @@
 package com.eclipsesource.makeithappen.ui;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.core.ECPProject;
 import org.eclipse.emf.ecp.ui.util.ECPModelElementOpener;
 import org.eclipse.emf.edit.provider.AttributeValueWrapperItemProvider;

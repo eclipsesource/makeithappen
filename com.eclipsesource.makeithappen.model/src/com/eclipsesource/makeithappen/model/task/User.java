@@ -16,8 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.eclipsesource.makeithappen.model.task.User#getFirstName <em>First Name</em>}</li>
  *   <li>{@link com.eclipsesource.makeithappen.model.task.User#getLastName <em>Last Name</em>}</li>
- *   <li>{@link com.eclipsesource.makeithappen.model.task.User#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link com.eclipsesource.makeithappen.model.task.User#getGender <em>Gender</em>}</li>
  *   <li>{@link com.eclipsesource.makeithappen.model.task.User#getEMails <em>EMails</em>}</li>
+ *   <li>{@link com.eclipsesource.makeithappen.model.task.User#getTasks <em>Tasks</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,7 +64,7 @@ public interface User extends EObject {
 	 * @return the value of the '<em>Last Name</em>' attribute.
 	 * @see #setLastName(String)
 	 * @see com.eclipsesource.makeithappen.model.task.TaskPackage#getUser_LastName()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getLastName();
@@ -79,22 +80,33 @@ public interface User extends EObject {
 	void setLastName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Tasks</b></em>' reference list.
-	 * The list contents are of type {@link com.eclipsesource.makeithappen.model.task.Task}.
-	 * It is bidirectional and its opposite is '{@link com.eclipsesource.makeithappen.model.task.Task#getAssignee <em>Assignee</em>}'.
+	 * Returns the value of the '<em><b>Gender</b></em>' attribute.
+	 * The literals are from the enumeration {@link com.eclipsesource.makeithappen.model.task.Gender}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Tasks</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Gender</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tasks</em>' reference list.
-	 * @see com.eclipsesource.makeithappen.model.task.TaskPackage#getUser_Tasks()
-	 * @see com.eclipsesource.makeithappen.model.task.Task#getAssignee
-	 * @model opposite="assignee"
+	 * @return the value of the '<em>Gender</em>' attribute.
+	 * @see com.eclipsesource.makeithappen.model.task.Gender
+	 * @see #setGender(Gender)
+	 * @see com.eclipsesource.makeithappen.model.task.TaskPackage#getUser_Gender()
+	 * @model
 	 * @generated
 	 */
-	EList<Task> getTasks();
+	Gender getGender();
+
+	/**
+	 * Sets the value of the '{@link com.eclipsesource.makeithappen.model.task.User#getGender <em>Gender</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Gender</em>' attribute.
+	 * @see com.eclipsesource.makeithappen.model.task.Gender
+	 * @see #getGender()
+	 * @generated
+	 */
+	void setGender(Gender value);
 
 	/**
 	 * Returns the value of the '<em><b>EMails</b></em>' attribute list.
@@ -111,5 +123,21 @@ public interface User extends EObject {
 	 * @generated
 	 */
 	EList<String> getEMails();
+
+	/**
+	 * Returns the value of the '<em><b>Tasks</b></em>' reference list.
+	 * The list contents are of type {@link com.eclipsesource.makeithappen.model.task.Task}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tasks</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tasks</em>' reference list.
+	 * @see com.eclipsesource.makeithappen.model.task.TaskPackage#getUser_Tasks()
+	 * @model
+	 * @generated
+	 */
+	EList<Task> getTasks();
 
 } // User

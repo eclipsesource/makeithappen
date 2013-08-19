@@ -17,7 +17,7 @@
             id="com.eclipsesource.makeithappen.ui.emailcontrol"
             showLabel="false">
          <staticTest
-               priority="1"
+               priority="4"
                singleValue="true"
                supportedClassType="java.lang.String"
                supportedEObject="com.eclipsesource.makeithappen.model.task.User"
