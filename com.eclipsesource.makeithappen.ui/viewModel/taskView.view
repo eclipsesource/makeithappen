@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.emf.ecp.view.model:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.emf.ecp.view.horizontal.model="http://org/eclipse/emf/ecp/view/horizontal/model" xmlns:org.eclipse.emf.ecp.view.model="http://org/eclipse/emf/ecp/view/model" xmlns:org.eclipse.emf.ecp.view.vertical.model="http://org/eclipse/emf/ecp/view/vertical/model" name="My Task View">
+  <rootEClass href="http://eclipsesource.com/makeithappen/model/task#//Task"/>
+  <children xsi:type="org.eclipse.emf.ecp.view.horizontal.model:HorizontalLayout" name="Root Layout">
+    <composites xsi:type="org.eclipse.emf.ecp.view.vertical.model:VerticalLayout" name="Second Column">
+      <composites xsi:type="org.eclipse.emf.ecp.view.model:Control" name="Control description">
+        <targetFeature xsi:type="ecore:EAttribute" href="http://eclipsesource.com/makeithappen/model/task#//Task/description"/>
+      </composites>
+    </composites>
+    <composites xsi:type="org.eclipse.emf.ecp.view.vertical.model:VerticalLayout" name="First Column">
+      <composites xsi:type="org.eclipse.emf.ecp.view.model:Control" name="Control name">
+        <targetFeature xsi:type="ecore:EAttribute" href="http://eclipsesource.com/makeithappen/model/task#//Task/name"/>
+      </composites>
+      <composites xsi:type="org.eclipse.emf.ecp.view.model:Control" name="Control dueDate">
+        <targetFeature xsi:type="ecore:EAttribute" href="http://eclipsesource.com/makeithappen/model/task#//Task/dueDate"/>
+      </composites>
+      <composites xsi:type="org.eclipse.emf.ecp.view.model:Control" name="Control done">
+        <targetFeature xsi:type="ecore:EAttribute" href="http://eclipsesource.com/makeithappen/model/task#//Task/done"/>
+      </composites>
+    </composites>
+  </children>
+</org.eclipse.emf.ecp.view.model:View>

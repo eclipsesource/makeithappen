@@ -25,5 +25,11 @@
          </staticTest>
       </control>
    </extension>
+   <extension
+         point="org.eclipse.emf.ecp.view.model.provider.xmi.file">
+      <file
+            filePath="viewModel/taskView.view">
+      </file>
+   </extension>
 
 </plugin>
