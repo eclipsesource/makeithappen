@@ -14,8 +14,7 @@
          point="org.eclipse.emf.ecp.edit.controls">
       <control
             class="com.eclipsesource.makeithappen.ui.EmailControl"
-            id="com.eclipsesource.makeithappen.ui.emailcontrol"
-            showLabel="false">
+            id="com.eclipsesource.makeithappen.ui.emailcontrol">
          <staticTest
                priority="4"
                singleValue="true"

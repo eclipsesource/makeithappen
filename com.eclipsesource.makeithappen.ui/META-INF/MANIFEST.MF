@@ -12,5 +12,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecp.edit;bundle-version="1.1.0",
  org.eclipse.emf.ecp.edit.swt;bundle-version="1.1.0",
  org.eclipse.emf.ecp.view.model.provider.xmi;bundle-version="1.1.0"
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
