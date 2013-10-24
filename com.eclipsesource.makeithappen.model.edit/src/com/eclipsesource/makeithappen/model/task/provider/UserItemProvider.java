@@ -60,6 +60,12 @@ public class UserItemProvider
 			addFirstNamePropertyDescriptor(object);
 			addLastNamePropertyDescriptor(object);
 			addGenderPropertyDescriptor(object);
+			addActivePropertyDescriptor(object);
+			addTimeOfRegistrationPropertyDescriptor(object);
+			addWeightPropertyDescriptor(object);
+			addHeigthPropertyDescriptor(object);
+			addNationalityPropertyDescriptor(object);
+			addDateOfBirthPropertyDescriptor(object);
 			addEMailsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -123,6 +129,138 @@ public class UserItemProvider
 				 getString("_UI_User_gender_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_User_gender_feature", "_UI_User_type"),
 				 TaskPackage.Literals.USER__GENDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Active feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_User_active_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_User_active_feature", "_UI_User_type"),
+				 TaskPackage.Literals.USER__ACTIVE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Time Of Registration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTimeOfRegistrationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_User_timeOfRegistration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_User_timeOfRegistration_feature", "_UI_User_type"),
+				 TaskPackage.Literals.USER__TIME_OF_REGISTRATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Date Of Birth feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDateOfBirthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_User_dateOfBirth_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_User_dateOfBirth_feature", "_UI_User_type"),
+				 TaskPackage.Literals.USER__DATE_OF_BIRTH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Weight feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addWeightPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_User_weight_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_User_weight_feature", "_UI_User_type"),
+				 TaskPackage.Literals.USER__WEIGHT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Heigth feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHeigthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_User_heigth_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_User_heigth_feature", "_UI_User_type"),
+				 TaskPackage.Literals.USER__HEIGTH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Nationality feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNationalityPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_User_nationality_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_User_nationality_feature", "_UI_User_type"),
+				 TaskPackage.Literals.USER__NATIONALITY,
 				 true,
 				 false,
 				 false,
@@ -233,6 +371,12 @@ public class UserItemProvider
 			case TaskPackage.USER__FIRST_NAME:
 			case TaskPackage.USER__LAST_NAME:
 			case TaskPackage.USER__GENDER:
+			case TaskPackage.USER__ACTIVE:
+			case TaskPackage.USER__TIME_OF_REGISTRATION:
+			case TaskPackage.USER__WEIGHT:
+			case TaskPackage.USER__HEIGTH:
+			case TaskPackage.USER__NATIONALITY:
+			case TaskPackage.USER__DATE_OF_BIRTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case TaskPackage.USER__EMAILS:

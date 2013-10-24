@@ -3,6 +3,7 @@
 package com.eclipsesource.makeithappen.model.task.impl;
 
 import com.eclipsesource.makeithappen.model.task.Gender;
+import com.eclipsesource.makeithappen.model.task.Nationality;
 import com.eclipsesource.makeithappen.model.task.Task;
 import com.eclipsesource.makeithappen.model.task.TaskFactory;
 import com.eclipsesource.makeithappen.model.task.TaskPackage;
@@ -10,8 +11,10 @@ import com.eclipsesource.makeithappen.model.task.User;
 
 import com.eclipsesource.makeithappen.model.task.UserGroup;
 import com.eclipsesource.makeithappen.model.task.util.TaskValidator;
+import javax.xml.datatype.XMLGregorianCalendar;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
@@ -55,6 +58,20 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 	 * @generated
 	 */
 	private EEnum genderEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum nationalityEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType dateOfBirthEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -239,7 +256,7 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUser_EMails() {
+	public EAttribute getUser_Active() {
 		return (EAttribute)userEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -248,8 +265,62 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUser_TimeOfRegistration() {
+		return (EAttribute)userEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUser_DateOfBirth() {
+		return (EAttribute)userEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUser_Weight() {
+		return (EAttribute)userEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUser_Heigth() {
+		return (EAttribute)userEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUser_Nationality() {
+		return (EAttribute)userEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUser_EMails() {
+		return (EAttribute)userEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getUser_Tasks() {
-		return (EReference)userEClass.getEStructuralFeatures().get(4);
+		return (EReference)userEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -293,6 +364,24 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getNationality() {
+		return nationalityEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getDateOfBirth() {
+		return dateOfBirthEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public TaskFactory getTaskFactory() {
 		return (TaskFactory)getEFactoryInstance();
 	}
@@ -329,6 +418,12 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 		createEAttribute(userEClass, USER__FIRST_NAME);
 		createEAttribute(userEClass, USER__LAST_NAME);
 		createEAttribute(userEClass, USER__GENDER);
+		createEAttribute(userEClass, USER__ACTIVE);
+		createEAttribute(userEClass, USER__TIME_OF_REGISTRATION);
+		createEAttribute(userEClass, USER__WEIGHT);
+		createEAttribute(userEClass, USER__HEIGTH);
+		createEAttribute(userEClass, USER__NATIONALITY);
+		createEAttribute(userEClass, USER__DATE_OF_BIRTH);
 		createEAttribute(userEClass, USER__EMAILS);
 		createEReference(userEClass, USER__TASKS);
 
@@ -338,6 +433,10 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 
 		// Create enums
 		genderEEnum = createEEnum(GENDER);
+		nationalityEEnum = createEEnum(NATIONALITY);
+
+		// Create data types
+		dateOfBirthEDataType = createEDataType(DATE_OF_BIRTH);
 	}
 
 	/**
@@ -373,7 +472,7 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTask_Name(), ecorePackage.getEString(), "name", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_Description(), ecorePackage.getEString(), "description", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Assignee(), this.getUser(), null, "assignee", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Assignee(), this.getUser(), this.getUser_Tasks(), "assignee", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_DueDate(), ecorePackage.getEDate(), "dueDate", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_SubTasks(), this.getTask(), null, "subTasks", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_Done(), ecorePackage.getEBoolean(), "done", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -391,8 +490,14 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 		initEAttribute(getUser_FirstName(), ecorePackage.getEString(), "firstName", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUser_LastName(), ecorePackage.getEString(), "lastName", null, 1, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUser_Gender(), this.getGender(), "gender", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUser_Active(), ecorePackage.getEBoolean(), "active", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUser_TimeOfRegistration(), ecorePackage.getEDate(), "timeOfRegistration", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUser_Weight(), ecorePackage.getEDouble(), "weight", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUser_Heigth(), ecorePackage.getEInt(), "heigth", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUser_Nationality(), this.getNationality(), "nationality", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUser_DateOfBirth(), this.getDateOfBirth(), "dateOfBirth", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUser_EMails(), ecorePackage.getEString(), "eMails", null, 1, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUser_Tasks(), this.getTask(), null, "tasks", null, 0, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUser_Tasks(), this.getTask(), this.getTask_Assignee(), "tasks", null, 0, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(userGroupEClass, UserGroup.class, "UserGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUserGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, UserGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -402,6 +507,18 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 		initEEnum(genderEEnum, Gender.class, "Gender");
 		addEEnumLiteral(genderEEnum, Gender.MALE);
 		addEEnumLiteral(genderEEnum, Gender.FEMALE);
+
+		initEEnum(nationalityEEnum, Nationality.class, "Nationality");
+		addEEnumLiteral(nationalityEEnum, Nationality.GERMAN);
+		addEEnumLiteral(nationalityEEnum, Nationality.FRENCH);
+		addEEnumLiteral(nationalityEEnum, Nationality.UK);
+		addEEnumLiteral(nationalityEEnum, Nationality.US);
+		addEEnumLiteral(nationalityEEnum, Nationality.SPANISH);
+		addEEnumLiteral(nationalityEEnum, Nationality.ITALIAN);
+		addEEnumLiteral(nationalityEEnum, Nationality.RUSSIAN);
+
+		// Initialize data types
+		initEDataType(dateOfBirthEDataType, XMLGregorianCalendar.class, "DateOfBirth", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

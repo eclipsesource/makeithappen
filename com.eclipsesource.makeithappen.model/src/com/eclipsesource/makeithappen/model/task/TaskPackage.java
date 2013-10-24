@@ -4,6 +4,7 @@ package com.eclipsesource.makeithappen.model.task;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -187,13 +188,67 @@ public interface TaskPackage extends EPackage {
 	int USER__GENDER = 2;
 
 	/**
+	 * The feature id for the '<em><b>Active</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__ACTIVE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Time Of Registration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__TIME_OF_REGISTRATION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Weight</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__WEIGHT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Heigth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__HEIGTH = 6;
+
+	/**
+	 * The feature id for the '<em><b>Nationality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__NATIONALITY = 7;
+
+	/**
+	 * The feature id for the '<em><b>Date Of Birth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__DATE_OF_BIRTH = 8;
+
+	/**
 	 * The feature id for the '<em><b>EMails</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER__EMAILS = 3;
+	int USER__EMAILS = 9;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -202,7 +257,7 @@ public interface TaskPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER__TASKS = 4;
+	int USER__TASKS = 10;
 
 	/**
 	 * The number of structural features of the '<em>User</em>' class.
@@ -211,7 +266,7 @@ public interface TaskPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER_FEATURE_COUNT = 5;
+	int USER_FEATURE_COUNT = 11;
 
 	/**
 	 * The number of operations of the '<em>User</em>' class.
@@ -279,6 +334,28 @@ public interface TaskPackage extends EPackage {
 	 * @generated
 	 */
 	int GENDER = 3;
+
+
+	/**
+	 * The meta object id for the '{@link com.eclipsesource.makeithappen.model.task.Nationality <em>Nationality</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.eclipsesource.makeithappen.model.task.Nationality
+	 * @see com.eclipsesource.makeithappen.model.task.impl.TaskPackageImpl#getNationality()
+	 * @generated
+	 */
+	int NATIONALITY = 4;
+
+
+	/**
+	 * The meta object id for the '<em>Date Of Birth</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see javax.xml.datatype.XMLGregorianCalendar
+	 * @see com.eclipsesource.makeithappen.model.task.impl.TaskPackageImpl#getDateOfBirth()
+	 * @generated
+	 */
+	int DATE_OF_BIRTH = 5;
 
 
 	/**
@@ -411,6 +488,72 @@ public interface TaskPackage extends EPackage {
 	EAttribute getUser_Gender();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.eclipsesource.makeithappen.model.task.User#isActive <em>Active</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Active</em>'.
+	 * @see com.eclipsesource.makeithappen.model.task.User#isActive()
+	 * @see #getUser()
+	 * @generated
+	 */
+	EAttribute getUser_Active();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.eclipsesource.makeithappen.model.task.User#getTimeOfRegistration <em>Time Of Registration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Time Of Registration</em>'.
+	 * @see com.eclipsesource.makeithappen.model.task.User#getTimeOfRegistration()
+	 * @see #getUser()
+	 * @generated
+	 */
+	EAttribute getUser_TimeOfRegistration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.eclipsesource.makeithappen.model.task.User#getDateOfBirth <em>Date Of Birth</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Date Of Birth</em>'.
+	 * @see com.eclipsesource.makeithappen.model.task.User#getDateOfBirth()
+	 * @see #getUser()
+	 * @generated
+	 */
+	EAttribute getUser_DateOfBirth();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.eclipsesource.makeithappen.model.task.User#getWeight <em>Weight</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Weight</em>'.
+	 * @see com.eclipsesource.makeithappen.model.task.User#getWeight()
+	 * @see #getUser()
+	 * @generated
+	 */
+	EAttribute getUser_Weight();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.eclipsesource.makeithappen.model.task.User#getHeigth <em>Heigth</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Heigth</em>'.
+	 * @see com.eclipsesource.makeithappen.model.task.User#getHeigth()
+	 * @see #getUser()
+	 * @generated
+	 */
+	EAttribute getUser_Heigth();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.eclipsesource.makeithappen.model.task.User#getNationality <em>Nationality</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nationality</em>'.
+	 * @see com.eclipsesource.makeithappen.model.task.User#getNationality()
+	 * @see #getUser()
+	 * @generated
+	 */
+	EAttribute getUser_Nationality();
+
+	/**
 	 * Returns the meta object for the attribute list '{@link com.eclipsesource.makeithappen.model.task.User#getEMails <em>EMails</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -473,6 +616,27 @@ public interface TaskPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getGender();
+
+	/**
+	 * Returns the meta object for enum '{@link com.eclipsesource.makeithappen.model.task.Nationality <em>Nationality</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Nationality</em>'.
+	 * @see com.eclipsesource.makeithappen.model.task.Nationality
+	 * @generated
+	 */
+	EEnum getNationality();
+
+	/**
+	 * Returns the meta object for data type '{@link javax.xml.datatype.XMLGregorianCalendar <em>Date Of Birth</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Date Of Birth</em>'.
+	 * @see javax.xml.datatype.XMLGregorianCalendar
+	 * @model instanceClass="javax.xml.datatype.XMLGregorianCalendar"
+	 * @generated
+	 */
+	EDataType getDateOfBirth();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -598,6 +762,54 @@ public interface TaskPackage extends EPackage {
 		EAttribute USER__GENDER = eINSTANCE.getUser_Gender();
 
 		/**
+		 * The meta object literal for the '<em><b>Active</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute USER__ACTIVE = eINSTANCE.getUser_Active();
+
+		/**
+		 * The meta object literal for the '<em><b>Time Of Registration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute USER__TIME_OF_REGISTRATION = eINSTANCE.getUser_TimeOfRegistration();
+
+		/**
+		 * The meta object literal for the '<em><b>Date Of Birth</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute USER__DATE_OF_BIRTH = eINSTANCE.getUser_DateOfBirth();
+
+		/**
+		 * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute USER__WEIGHT = eINSTANCE.getUser_Weight();
+
+		/**
+		 * The meta object literal for the '<em><b>Heigth</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute USER__HEIGTH = eINSTANCE.getUser_Heigth();
+
+		/**
+		 * The meta object literal for the '<em><b>Nationality</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute USER__NATIONALITY = eINSTANCE.getUser_Nationality();
+
+		/**
 		 * The meta object literal for the '<em><b>EMails</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -648,6 +860,26 @@ public interface TaskPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum GENDER = eINSTANCE.getGender();
+
+		/**
+		 * The meta object literal for the '{@link com.eclipsesource.makeithappen.model.task.Nationality <em>Nationality</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.eclipsesource.makeithappen.model.task.Nationality
+		 * @see com.eclipsesource.makeithappen.model.task.impl.TaskPackageImpl#getNationality()
+		 * @generated
+		 */
+		EEnum NATIONALITY = eINSTANCE.getNationality();
+
+		/**
+		 * The meta object literal for the '<em>Date Of Birth</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see javax.xml.datatype.XMLGregorianCalendar
+		 * @see com.eclipsesource.makeithappen.model.task.impl.TaskPackageImpl#getDateOfBirth()
+		 * @generated
+		 */
+		EDataType DATE_OF_BIRTH = eINSTANCE.getDateOfBirth();
 
 	}
 

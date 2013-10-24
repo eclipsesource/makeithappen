@@ -6,6 +6,7 @@ import com.eclipsesource.makeithappen.model.task.*;
 
 import java.util.Map;
 
+import javax.xml.datatype.XMLGregorianCalendar;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 
@@ -101,6 +102,10 @@ public class TaskValidator extends EObjectValidator {
 				return validateUserGroup((UserGroup)value, diagnostics, context);
 			case TaskPackage.GENDER:
 				return validateGender((Gender)value, diagnostics, context);
+			case TaskPackage.NATIONALITY:
+				return validateNationality((Nationality)value, diagnostics, context);
+			case TaskPackage.DATE_OF_BIRTH:
+				return validateDateOfBirth((XMLGregorianCalendar)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -159,6 +164,24 @@ public class TaskValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateGender(Gender gender, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNationality(Nationality nationality, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDateOfBirth(XMLGregorianCalendar dateOfBirth, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

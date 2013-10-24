@@ -60,6 +60,7 @@ public interface Task extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Assignee</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.eclipsesource.makeithappen.model.task.User#getTasks <em>Tasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Assignee</em>' reference isn't clear,
@@ -69,7 +70,8 @@ public interface Task extends EObject {
 	 * @return the value of the '<em>Assignee</em>' reference.
 	 * @see #setAssignee(User)
 	 * @see com.eclipsesource.makeithappen.model.task.TaskPackage#getTask_Assignee()
-	 * @model
+	 * @see com.eclipsesource.makeithappen.model.task.User#getTasks
+	 * @model opposite="tasks"
 	 * @generated
 	 */
 	User getAssignee();
