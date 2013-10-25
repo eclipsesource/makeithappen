@@ -1,0 +1,20 @@
+/* Main CSS-File */
+BorderPane {
+    -fx-background-color: #123456;
+    
+}
+.label {
+    -fx-background-color: #889900;
+    -fx-font-size: 20px;
+    -fx-background-radius: 20px;
+    -fx-padding: 5px 20px 5px 20px;
+}
+TextField {
+    -fx-font-size: 20px;
+    -fx-text-fill: #aabbcc;
+    -fx-prompt-text-fill:#ff0155;
+}
+
+VBox, HBox {
+	-fx-spacing: 20px;
+}
