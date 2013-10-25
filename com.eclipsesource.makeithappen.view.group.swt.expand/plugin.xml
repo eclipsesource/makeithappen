@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.ecp.ui.view.swt.customSWTRenderers">
+      <renderers
+            class="com.eclipsesource.makeithappen.view.group.swt.expand.SWTRendererGroup">
+      </renderers>
+   </extension>
+
+</plugin>
