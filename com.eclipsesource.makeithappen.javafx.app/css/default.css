@@ -1,20 +1,81 @@
 /* Main CSS-File */
 BorderPane {
-    -fx-background-color: #123456;
+    -fx-background-color: radial-gradient(center 50% -40%, radius 200%, #0055ff 45%, #0022FF 50%);
     
 }
 .label {
-    -fx-background-color: #889900;
-    -fx-font-size: 20px;
-    -fx-background-radius: 20px;
-    -fx-padding: 5px 20px 5px 20px;
+    -fx-background-color: transparent;
+    -fx-font-size: 20.0px;
+    -fx-background-radius: 5, 5, 4, 3;
+    -fx-padding: 5.0px;
+    -fx-text-fill: linear-gradient(to bottom, #fff 0.0%, #ccc 100.0%);
 }
-TextField {
-    -fx-font-size: 20px;
-    -fx-text-fill: #aabbcc;
-    -fx-prompt-text-fill:#ff0155;
+.text-field {
+    -fx-font-size: 20.0px;
+    -fx-background-radius: 5, 5, 4, 3;
+    -fx-border-radius: 5, 5, 4, 3;
+}
+.text-field#error {
+    -fx-background-color: 
+        #722727,
+        #700000, 
+        linear-gradient(to bottom, #FF0000 0.0%, #CC0000 100.0%);
+        
+        -fx-padding: 5.0px;
+}
+.text-field#ok {
+    -fx-background-color: 
+        #999999, 
+        #336699,
+        linear-gradient(to bottom, #fff 0.0%, #ccc 100.0%);
+        
+        -fx-padding: 5.0px;
+}
+.pane{
+	-fx-padding: 10.0px;
+}
+.choice-box{
+	-fx-background-color: linear-gradient(to bottom, #fff 0.0%, #ccc 100.0%);
+}
+.choice-box .label {
+    -fx-background-color: linear-gradient(to bottom, #fff 0.0%, #ccc 100.0%);
+    -fx-background-radius: 5, 5, 4, 3;
+    -fx-padding: 5.0px;
+    -fx-text-fill: black;
+}
+#choice-box-menu-item .label {
+   -fx-background-color:  transparent;
+   -fx-background-radius: 5, 5, 4, 3;
+    -fx-padding: 5.0px;
+    -fx-text-fill: black;
+}
+.context-menu {
+	-fx-background-color: linear-gradient(to bottom, #fff 0.0%, #ccc 100.0%);
+	-fx-background-radius: 5, 5, 4, 3;
+	-fx-border-color: #777;
+	-fx-border-width: 2px;
+	-fx-border-radius: 5, 5, 4, 3;
+}
+#choice-box-menu-item:hover  {
+	-fx-background-radius: 5, 5, 4, 3;
+}
+.button{
+	-fx-background-color: linear-gradient(to bottom, #fff 0.0%, #ccc 100.0%);
+	-fx-font-size: 20.0px;
 }
 
-VBox, HBox {
-	-fx-spacing: 20px;
+.check-box{
+	-fx-font-size: 20.0px;
+}
+
+.vertical{
+    -fx-padding: 10;
+    -fx-hgap: 20;
+    -fx-vgap: 5;
+ }
+ #xmlDateBox, #dateBox{
+ 	-fx-spacing: 10.0px;
+ }
+VBox , Hbox {
+	-fx-spacing: 50.0px;
 }
