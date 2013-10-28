@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.ecp.edit.controls">
+      <control
+            class="com.eclipsesource.makeithappen.ui.EmailControl"
+            id="com.eclipsesource.makeithappen.ui.emailcontrol">
+         <staticTest
+               priority="4"
+               singleValue="true"
+               supportedClassType="java.lang.String"
+               supportedEObject="com.eclipsesource.makeithappen.model.task.User"
+               supportedFeature="eMails">
+         </staticTest>
+      </control>
+   </extension>
+
+</plugin>

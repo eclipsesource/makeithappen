@@ -11,20 +11,6 @@
       </modelElementOpener>
    </extension>
    <extension
-         point="org.eclipse.emf.ecp.edit.controls">
-      <control
-            class="com.eclipsesource.makeithappen.ui.EmailControl"
-            id="com.eclipsesource.makeithappen.ui.emailcontrol">
-         <staticTest
-               priority="4"
-               singleValue="true"
-               supportedClassType="java.lang.String"
-               supportedEObject="com.eclipsesource.makeithappen.model.task.User"
-               supportedFeature="eMails">
-         </staticTest>
-      </control>
-   </extension>
-   <extension
          point="org.eclipse.emf.ecp.view.model.provider.xmi.file">
       <file
             filePath="viewModel/taskView.view">
