@@ -90,7 +90,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_S13UIzy-EeO16cFv6spH1w" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="task.ecore#//User"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_S13UJDy-EeO16cFv6spH1w" x="25" y="25" width="293"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_S13UJDy-EeO16cFv6spH1w" x="100" y="25" width="218"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_S16-gDy-EeO16cFv6spH1w" type="1001">
     <children xmi:type="notation:Node" xmi:id="_S16-gzy-EeO16cFv6spH1w" type="4001"/>
@@ -156,7 +156,7 @@
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_S2Evijy-EeO16cFv6spH1w" type="3002" source="_S16-gDy-EeO16cFv6spH1w" target="_S13UIjy-EeO16cFv6spH1w">
     <children xmi:type="notation:Node" xmi:id="_S2FWkDy-EeO16cFv6spH1w" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_S2FWkTy-EeO16cFv6spH1w" x="-3" y="-36"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_S2FWkTy-EeO16cFv6spH1w" x="-33" y="-24"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_S2FWkjy-EeO16cFv6spH1w" type="4012">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_S2FWkzy-EeO16cFv6spH1w" x="-3" y="23"/>
