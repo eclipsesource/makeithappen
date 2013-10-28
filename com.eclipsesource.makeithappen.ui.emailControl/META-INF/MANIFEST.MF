@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EmailControl
+Bundle-SymbolicName: com.eclipsesource.makeithappen.ui.emailControl
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: ECLIPSESOURCE
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.emf.ecp.edit.swt,
+ org.eclipse.emf.ecp.ui.view
+Import-Package: org.eclipse.jface.layout,
+ org.eclipse.swt,
+ org.eclipse.swt.events,
+ org.eclipse.swt.widgets
