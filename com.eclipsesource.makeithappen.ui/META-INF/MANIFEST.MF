@@ -3,10 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Ui
 Bundle-SymbolicName: com.eclipsesource.makeithappen.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: com.eclipsesource.makeithappen.ui.Activator
 Bundle-Vendor: ECLIPSESOURCE
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
+Require-Bundle: org.eclipse.core.runtime,
  com.eclipsesource.makeithappen.model;bundle-version="0.1.0",
  org.eclipse.emf.ecp.ui;bundle-version="1.1.0",
  org.eclipse.emf.ecp.edit;bundle-version="1.1.0",
@@ -14,3 +12,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecp.view.model.provider.xmi;bundle-version="1.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.jface.layout,
+ org.eclipse.swt,
+ org.eclipse.swt.events,
+ org.eclipse.swt.widgets
