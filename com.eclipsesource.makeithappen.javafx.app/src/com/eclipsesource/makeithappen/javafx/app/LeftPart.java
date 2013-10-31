@@ -4,6 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
@@ -19,6 +20,7 @@ import org.eclipse.fx.emf.edit.ui.AdapterFactoryListCellFactory;
 import org.eclipse.fx.emf.edit.ui.AdapterFactoryObservableList;
 
 import com.eclipsesource.makeithappen.model.task.TaskFactory;
+import com.eclipsesource.makeithappen.model.task.User;
 import com.eclipsesource.makeithappen.model.task.UserGroup;
 
 public class LeftPart {
@@ -39,7 +41,6 @@ public class LeftPart {
 	@PostConstruct
 	public void postConstruct(BorderPane parent) {
 		// TODO Your code here
-		
 		Button addElementButton=new Button("Add Element");
 		addElementButton.setMaxWidth(Double.MAX_VALUE);
 		parent.setTop(addElementButton);
@@ -47,11 +48,16 @@ public class LeftPart {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				userGroup.getUsers().add(TaskFactory.eINSTANCE.createUser());
+				User user=TaskFactory.eINSTANCE.createUser();
+				user.getEMails().add("bla");
+				userGroup.getUsers().add(user);
 			}
 		});
 
+		parent.setMargin(addElementButton, new Insets(5));
+		
 		ListView<Object> list = new ListView<Object>();
+		parent.setMargin(list, new Insets(5,5,5,5));
 		
 
 		list.setItems(new AdapterFactoryObservableList<Object>(adapterFactory,
