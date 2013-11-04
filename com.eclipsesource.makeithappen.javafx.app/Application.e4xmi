@@ -2,7 +2,9 @@
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_zaCnYD12EeO_XeZZbTqIeQ" elementId="org.eclipse.e4.application" bindingContexts="_zaBZQD12EeO_XeZZbTqIeQ">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_49VQ0D12EeO_XeZZbTqIeQ" elementId="de.neufeld.e4.javafx.test.app.trimmedwindow.0" label="Make It Happen">
     <children xsi:type="basic:PartSashContainer" xmi:id="_49VQ0T12EeO_XeZZbTqIeQ" elementId="de.neufeld.e4.javafx.test.app.partsashcontainer.0" horizontal="true">
-      <children xsi:type="basic:Part" xmi:id="_49VQ0j12EeO_XeZZbTqIeQ" elementId="de.neufeld.e4.javafx.test.app.part.0" contributionURI="bundleclass://com.eclipsesource.makeithappen.javafx.app/com.eclipsesource.makeithappen.javafx.app.LeftPart"/>
+      <children xsi:type="basic:PartStack" xmi:id="_tw5mEEKDEeOVAuW2nuLneQ" elementId="com.eclipsesource.makeithappen.javafx.app.partstack.0" selectedElement="_49VQ0j12EeO_XeZZbTqIeQ">
+        <children xsi:type="basic:Part" xmi:id="_49VQ0j12EeO_XeZZbTqIeQ" elementId="de.neufeld.e4.javafx.test.app.part.0" contributionURI="bundleclass://com.eclipsesource.makeithappen.javafx.app/com.eclipsesource.makeithappen.javafx.app.LeftPart" label="Elements"/>
+      </children>
       <children xsi:type="basic:Part" xmi:id="_49VQ0z12EeO_XeZZbTqIeQ" elementId="de.neufeld.e4.javafx.test.app.part.1" contributionURI="bundleclass://com.eclipsesource.makeithappen.javafx.app/com.eclipsesource.makeithappen.javafx.app.RightPart"/>
     </children>
   </children>
