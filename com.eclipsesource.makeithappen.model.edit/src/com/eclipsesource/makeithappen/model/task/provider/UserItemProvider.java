@@ -67,6 +67,7 @@ public class UserItemProvider
 			addNationalityPropertyDescriptor(object);
 			addDateOfBirthPropertyDescriptor(object);
 			addEMailsPropertyDescriptor(object);
+			addTasksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -287,6 +288,28 @@ public class UserItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Tasks feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTasksPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_User_tasks_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_User_tasks_feature", "_UI_User_type"),
+				 TaskPackage.Literals.USER__TASKS,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

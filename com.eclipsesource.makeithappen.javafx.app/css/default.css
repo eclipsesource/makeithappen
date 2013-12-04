@@ -112,7 +112,7 @@ Control{
 	
 }
 
-.vertical{
+.vertical, .horizontal{
     -fx-padding: 10;
     -fx-hgap: 20;
     -fx-vgap: 5;

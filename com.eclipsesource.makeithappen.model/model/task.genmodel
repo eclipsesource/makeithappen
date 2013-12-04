@@ -11,6 +11,16 @@
       <genEnumLiterals ecoreEnumLiteral="task.ecore#//Gender/Male"/>
       <genEnumLiterals ecoreEnumLiteral="task.ecore#//Gender/Female"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="task.ecore#//Nationality">
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//Nationality/German"/>
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//Nationality/French"/>
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//Nationality/UK"/>
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//Nationality/US"/>
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//Nationality/Spanish"/>
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//Nationality/Italian"/>
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//Nationality/Russian"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="task.ecore#//DateOfBirth"/>
     <genClasses image="false" ecoreClass="task.ecore#//Task">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/name"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute task.ecore#//Task/description"/>
@@ -27,13 +37,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//User/firstName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//User/lastName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//User/gender"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//User/active"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//User/timeOfRegistration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//User/weight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//User/heigth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//User/nationality"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//User/dateOfBirth"/>
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute task.ecore#//User/eMails"/>
-      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference task.ecore#//User/tasks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//User/tasks"/>
     </genClasses>
     <genClasses ecoreClass="task.ecore#//UserGroup">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//UserGroup/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//UserGroup/users"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//UserGroup/users"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
