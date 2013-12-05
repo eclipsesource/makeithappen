@@ -7,7 +7,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.emf.ecp.view.model;bundle-version="1.1.0",
  org.eclipse.emf.ecp.ui.view.swt,
  org.eclipse.emf.ecp.edit.swt;bundle-version="1.1.0",
- org.eclipse.core.runtime;bundle-version="3.9.0"
+ org.eclipse.core.runtime;bundle-version="3.9.0",
+ org.eclipse.emf.ecp.view.categorization.model
 Import-Package: org.eclipse.jface.layout,
  org.eclipse.jface.resource,
  org.eclipse.jface.viewers,

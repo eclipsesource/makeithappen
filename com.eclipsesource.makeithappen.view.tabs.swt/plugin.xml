@@ -2,10 +2,11 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.emf.ecp.ui.view.swt.customSWTRenderers">
-      <renderers
-            class="com.eclipsesource.makeithappen.view.tabs.swt.SWTRendererGroup">
-      </renderers>
+         point="org.eclipse.emf.ecp.ui.view.swt.renderers">
+      <renderer
+            element="org.eclipse.emf.ecp.view.categorization.model.VCategorizationElement"
+            renderer="com.eclipsesource.makeithappen.view.tabs.swt.SWTViewRenderer">
+      </renderer>
    </extension>
 
 </plugin>

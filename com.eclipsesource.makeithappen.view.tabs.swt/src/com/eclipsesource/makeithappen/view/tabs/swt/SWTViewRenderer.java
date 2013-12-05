@@ -18,22 +18,18 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecp.internal.ui.view.renderer.NoPropertyDescriptorFoundExeption;
 import org.eclipse.emf.ecp.internal.ui.view.renderer.NoRendererFoundException;
-import org.eclipse.emf.ecp.internal.ui.view.renderer.Node;
 import org.eclipse.emf.ecp.internal.ui.view.renderer.RenderingResultRow;
 import org.eclipse.emf.ecp.ui.view.swt.internal.AbstractSWTRenderer;
-import org.eclipse.emf.ecp.ui.view.swt.internal.SWTRenderers;
-import org.eclipse.emf.ecp.view.model.VAbstractCategorization;
-import org.eclipse.emf.ecp.view.model.VCategorization;
-import org.eclipse.emf.ecp.view.model.VCategory;
-import org.eclipse.emf.ecp.view.model.VElement;
-import org.eclipse.emf.ecp.view.model.VView;
-import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
+import org.eclipse.emf.ecp.ui.view.swt.internal.SWTRendererFactory;
+import org.eclipse.emf.ecp.view.categorization.model.VAbstractCategorization;
+import org.eclipse.emf.ecp.view.categorization.model.VCategorization;
+import org.eclipse.emf.ecp.view.categorization.model.VCategorizationElement;
+import org.eclipse.emf.ecp.view.categorization.model.VCategory;
+import org.eclipse.emf.ecp.view.context.ViewModelContext;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.TabFolder;
@@ -45,7 +41,7 @@ import org.eclipse.swt.widgets.TabItem;
  */
 @SuppressWarnings("restriction")
 //no api
-public class SWTViewRenderer extends AbstractSWTRenderer<VView> {
+public class SWTViewRenderer extends AbstractSWTRenderer<VCategorizationElement> {
 
 	/** The Constant INSTANCE. */
 	public static final SWTViewRenderer INSTANCE = new SWTViewRenderer();
@@ -55,50 +51,43 @@ public class SWTViewRenderer extends AbstractSWTRenderer<VView> {
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.eclipse.emf.ecp.ui.view.swt.internal.AbstractSWTRenderer#renderSWT(org.eclipse.emf.ecp.internal.ui.view.renderer.Node,
-	 *      org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator, java.lang.Object[])
+	 * @see org.eclipse.emf.ecp.ui.view.swt.internal.AbstractSWTRenderer#renderModel(org.eclipse.swt.widgets.Composite,
+	 *      org.eclipse.emf.ecp.view.model.VElement, org.eclipse.emf.ecp.view.context.ViewModelContext)
 	 */
 	@Override
-	public List<RenderingResultRow<Control>> renderSWT(final Node<VView> viewNode,
-		final AdapterFactoryItemDelegator adapterFactoryItemDelegator,
-
-		Object... initData) throws NoRendererFoundException, NoPropertyDescriptorFoundExeption {
-		final Composite parent = getParentFromInitData(initData);
-		final VView view = viewNode.getRenderable();
+	protected List<RenderingResultRow<Control>> renderModel(Composite parent, VCategorizationElement vCategorizationElement,
+		ViewModelContext viewContext)
+		throws NoRendererFoundException, NoPropertyDescriptorFoundExeption {
 		
 
-		final EList<VAbstractCategorization> categorizations = view.getCategorizations();
+		final EList<VAbstractCategorization> categorizations = vCategorizationElement.getCategorizations();
 
-		if (categorizations.size() == 0) {
-			return renderChildren(parent, viewNode, adapterFactoryItemDelegator);
-		}
-		else if (categorizations.size() == 1 && categorizations.get(0) instanceof VCategory) {
-			final List<RenderingResultRow<Control>> resultRows = SWTRenderers.INSTANCE.render(parent, viewNode
-				.getChildren().get(0),
-				adapterFactoryItemDelegator);
-			viewNode.addRenderingResultDelegator(withSWT(resultRows.get(0).getMainControl()));
+		
+		if (categorizations.size() == 1 && categorizations.get(0) instanceof VCategory) {
+			final List<RenderingResultRow<Control>> resultRows = SWTRendererFactory.INSTANCE.render(parent,
+				vCategorizationElement.getCategorizations().get(0), viewContext);
+
 			return resultRows;
+
 		} else {
 			final Composite composite = createComposite(parent);
-			createTabs(composite,viewNode,adapterFactoryItemDelegator);
-
-			viewNode.addRenderingResultDelegator(withSWT(composite));
+			createTabs(composite,vCategorizationElement,viewContext);
 
 			return createResult(composite);
 		}
 	}
 
-	private void createTabs(Composite composite, Node<VView> viewNode, AdapterFactoryItemDelegator adapterFactoryItemDelegator) {
+	private void createTabs(Composite composite,VCategorizationElement vCategorizationElement, ViewModelContext viewContext) {
 		final TabFolder tabFolder = new TabFolder (composite, SWT.NONE);
 		tabFolder.setBackground(composite.getBackground());
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.FILL).grab(true, true).applyTo(tabFolder);
-		for (final Node<? extends VElement> child : viewNode.getChildren()) {
-			if(VCategorization.class.isInstance(child.getRenderable()))
+		for (VAbstractCategorization child : vCategorizationElement.getCategorizations()) {
+			if(VCategorization.class.isInstance(child))
 				continue;
 			List<RenderingResultRow<Control>> resultRows;
 			try {
-				resultRows = SWTRenderers.INSTANCE.render(
-					tabFolder, child, adapterFactoryItemDelegator);
+				resultRows = SWTRendererFactory.INSTANCE.render(
+					tabFolder, child, viewContext);
 				// TOOD; when does this case apply?
 				if (resultRows == null) {
 					continue;
@@ -110,8 +99,8 @@ public class SWTViewRenderer extends AbstractSWTRenderer<VView> {
 			}
 
 			TabItem item = new TabItem (tabFolder, SWT.NONE);
-			if(child.getRenderable().getName()!=null)
-				item.setText (child.getRenderable().getName());
+			if(child.getName()!=null)
+				item.setText (child.getName());
 			
 			item.setControl (resultRows.get(0).getMainControl());
 			
@@ -120,45 +109,7 @@ public class SWTViewRenderer extends AbstractSWTRenderer<VView> {
 		
 	}
 
-	/**
-	 * Render children.
-	 * 
-	 * @param parent the parent
-	 * @param node the node
-	 * @param adapterFactoryItemDelegator the adapter factory item delegator
-	 * @return the composite
-	 * @throws NoRendererFoundException the no renderer found exception
-	 */
-	private List<RenderingResultRow<Control>> renderChildren(Composite parent, Node<VView> node,
-		AdapterFactoryItemDelegator adapterFactoryItemDelegator)
-		throws NoRendererFoundException {
-		final Composite columnComposite = new Composite(parent, SWT.NONE);
-		columnComposite.setBackground(parent.getBackground());
-
-		columnComposite.setLayout(getLayoutHelper().getColumnLayout(2, false));
-
-		node.addRenderingResultDelegator(withSWT(columnComposite));
-
-		for (final Node<? extends VElement> child : node.getChildren()) {
-
-			List<RenderingResultRow<Control>> resultRows;
-			try {
-				resultRows = SWTRenderers.INSTANCE.render(
-					columnComposite, child, adapterFactoryItemDelegator);
-			} catch (final NoPropertyDescriptorFoundExeption e) {
-				continue;
-			}
-
-			// TOOD; when does this case apply?
-			if (resultRows == null) {
-				continue;
-			}
-
-			setLayoutDataForResultRows(resultRows);
-		}
-
-		return createResult(columnComposite);
-	}
+	
 
 	/**
 	 * Created editor pane.
