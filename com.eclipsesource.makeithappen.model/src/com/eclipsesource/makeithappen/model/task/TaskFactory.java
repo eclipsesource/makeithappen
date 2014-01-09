@@ -38,7 +38,6 @@ public interface TaskFactory extends EFactory {
 	 * @generated
 	 */
 	User createUser();
-
 	/**
 	 * Returns a new object of class '<em>User Group</em>'.
 	 * <!-- begin-user-doc -->
