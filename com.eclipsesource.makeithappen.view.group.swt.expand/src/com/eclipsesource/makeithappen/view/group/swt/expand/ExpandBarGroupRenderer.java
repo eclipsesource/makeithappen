@@ -15,7 +15,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
-@SuppressWarnings("restriction")
 // TODO no api
 public class ExpandBarGroupRenderer extends AbstractSWTRenderer<VGroup> {
 
