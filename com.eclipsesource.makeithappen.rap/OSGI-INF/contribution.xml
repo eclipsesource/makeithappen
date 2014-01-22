@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="BasicApplication">
-   <implementation class="com.eclipsesource.makeithappen.rap.BasicApplication"/>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.eclipsesource.makeithappen.rap">
+   <implementation class="com.eclipsesource.makeithappen.rap.MakeItHappenConfiguration"/>
    <service>
       <provide interface="org.eclipse.rap.rwt.application.ApplicationConfiguration"/>
    </service>
