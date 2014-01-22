@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: RAP
+Bundle-Name: Rap
 Bundle-SymbolicName: com.eclipsesource.makeithappen.rap
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: ECLIPSESOURCE
