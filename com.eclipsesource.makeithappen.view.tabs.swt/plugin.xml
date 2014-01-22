@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.emf.ecp.ui.view.swt.renderers">
       <renderer
-            element="org.eclipse.emf.ecp.view.categorization.model.VCategorizationElement"
+            element="org.eclipse.emf.ecp.view.spi.categorization.model.VCategorizationElement"
             renderer="com.eclipsesource.makeithappen.view.tabs.swt.SWTViewRenderer">
       </renderer>
    </extension>
