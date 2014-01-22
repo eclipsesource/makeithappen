@@ -39,7 +39,6 @@ import org.eclipse.swt.widgets.TabItem;
 /**
  * The Class SWTViewRenderer.
  */
-@SuppressWarnings("restriction")
 //no api
 public class SWTViewRenderer extends AbstractSWTRenderer<VCategorizationElement> {
 

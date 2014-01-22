@@ -16,7 +16,6 @@ import org.eclipse.swt.widgets.Composite;
 @SuppressWarnings("restriction")
 public class EmailControl extends StringControl {
 
-	@SuppressWarnings("serial")
 	@Override
 	protected void fillControlComposite(Composite composite) {
 		final Composite main = new Composite(composite, SWT.NONE);
