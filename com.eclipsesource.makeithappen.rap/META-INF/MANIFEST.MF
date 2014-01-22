@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Rap
-Bundle-SymbolicName: com.eclipsesource.makeithappen.rap
+Bundle-SymbolicName: com.eclipsesource.makeithappen.rap;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: ECLIPSESOURCE
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
@@ -9,7 +9,8 @@ Require-Bundle: org.eclipse.rap.rwt;bundle-version="[2.0.0,3.0.0)",
  org.eclipse.rap.jface.databinding;bundle-version="[2.1.0,3.0.0)",
  com.eclipsesource.makeithappen.model,
  org.eclipse.emf.edit,
- org.eclipse.emf.ecp.ui.view.swt;bundle-version="1.1.1"
+ org.eclipse.emf.ecp.ui.view.swt;bundle-version="1.1.1",
+ org.eclipse.core.resources;bundle-version="3.8.101"
 Service-Component: OSGI-INF/contribution.xml
 Import-Package: org.eclipse.core.databinding.observable,
  org.eclipse.emf.ecp.ui.view;version="[1.1.0,2.0.0)",
