@@ -39,7 +39,7 @@ public class ExpandBarGroupRenderer extends AbstractSWTRenderer<VGroup> {
 		if (vGroup.getName() != null) {
 			group.setText(vGroup.getName());
 		}
-		group.setLayout(getLayoutHelper().getColumnLayout(2, false));
+		group.setLayout(getLayoutHelper().getColumnLayout(3, false));
 
 		for (final VContainedElement child : vGroup.getChildren()) {
 
