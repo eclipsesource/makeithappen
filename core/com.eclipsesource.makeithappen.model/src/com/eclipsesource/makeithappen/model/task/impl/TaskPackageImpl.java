@@ -283,6 +283,15 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUser_Email() {
+		return (EAttribute)userEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getUser_Weight() {
 		return (EAttribute)userEClass.getEStructuralFeatures().get(5);
 	}
@@ -303,15 +312,6 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 	 */
 	public EAttribute getUser_Nationality() {
 		return (EAttribute)userEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUser_EMails() {
-		return (EAttribute)userEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -424,7 +424,7 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 		createEAttribute(userEClass, USER__HEIGTH);
 		createEAttribute(userEClass, USER__NATIONALITY);
 		createEAttribute(userEClass, USER__DATE_OF_BIRTH);
-		createEAttribute(userEClass, USER__EMAILS);
+		createEAttribute(userEClass, USER__EMAIL);
 		createEReference(userEClass, USER__TASKS);
 
 		userGroupEClass = createEClass(USER_GROUP);
@@ -496,7 +496,7 @@ public class TaskPackageImpl extends EPackageImpl implements TaskPackage {
 		initEAttribute(getUser_Heigth(), ecorePackage.getEInt(), "heigth", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUser_Nationality(), this.getNationality(), "nationality", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUser_DateOfBirth(), this.getDateOfBirth(), "dateOfBirth", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUser_EMails(), ecorePackage.getEString(), "eMails", null, 1, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUser_Email(), ecorePackage.getEString(), "email", null, 1, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUser_Tasks(), this.getTask(), this.getTask_Assignee(), "tasks", null, 0, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(userGroupEClass, UserGroup.class, "UserGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

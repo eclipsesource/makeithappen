@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.eclipsesource.makeithappen.model.task.User#getHeigth <em>Heigth</em>}</li>
  *   <li>{@link com.eclipsesource.makeithappen.model.task.User#getNationality <em>Nationality</em>}</li>
  *   <li>{@link com.eclipsesource.makeithappen.model.task.User#getDateOfBirth <em>Date Of Birth</em>}</li>
- *   <li>{@link com.eclipsesource.makeithappen.model.task.User#getEMails <em>EMails</em>}</li>
+ *   <li>{@link com.eclipsesource.makeithappen.model.task.User#getEmail <em>Email</em>}</li>
  *   <li>{@link com.eclipsesource.makeithappen.model.task.User#getTasks <em>Tasks</em>}</li>
  * </ul>
  * </p>
@@ -195,6 +195,32 @@ public interface User extends EObject {
 	void setDateOfBirth(XMLGregorianCalendar value);
 
 	/**
+	 * Returns the value of the '<em><b>Email</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Email</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Email</em>' attribute.
+	 * @see #setEmail(String)
+	 * @see com.eclipsesource.makeithappen.model.task.TaskPackage#getUser_Email()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getEmail();
+
+	/**
+	 * Sets the value of the '{@link com.eclipsesource.makeithappen.model.task.User#getEmail <em>Email</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Email</em>' attribute.
+	 * @see #getEmail()
+	 * @generated
+	 */
+	void setEmail(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Weight</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -274,22 +300,6 @@ public interface User extends EObject {
 	 * @generated
 	 */
 	void setNationality(Nationality value);
-
-	/**
-	 * Returns the value of the '<em><b>EMails</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>EMails</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>EMails</em>' attribute list.
-	 * @see com.eclipsesource.makeithappen.model.task.TaskPackage#getUser_EMails()
-	 * @model required="true"
-	 * @generated
-	 */
-	EList<String> getEMails();
 
 	/**
 	 * Returns the value of the '<em><b>Tasks</b></em>' reference list.

@@ -242,13 +242,13 @@ public interface TaskPackage extends EPackage {
 	int USER__DATE_OF_BIRTH = 8;
 
 	/**
-	 * The feature id for the '<em><b>EMails</b></em>' attribute list.
+	 * The feature id for the '<em><b>Email</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER__EMAILS = 9;
+	int USER__EMAIL = 9;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -521,6 +521,17 @@ public interface TaskPackage extends EPackage {
 	EAttribute getUser_DateOfBirth();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.eclipsesource.makeithappen.model.task.User#getEmail <em>Email</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Email</em>'.
+	 * @see com.eclipsesource.makeithappen.model.task.User#getEmail()
+	 * @see #getUser()
+	 * @generated
+	 */
+	EAttribute getUser_Email();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.eclipsesource.makeithappen.model.task.User#getWeight <em>Weight</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -552,17 +563,6 @@ public interface TaskPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getUser_Nationality();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link com.eclipsesource.makeithappen.model.task.User#getEMails <em>EMails</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>EMails</em>'.
-	 * @see com.eclipsesource.makeithappen.model.task.User#getEMails()
-	 * @see #getUser()
-	 * @generated
-	 */
-	EAttribute getUser_EMails();
 
 	/**
 	 * Returns the meta object for the reference list '{@link com.eclipsesource.makeithappen.model.task.User#getTasks <em>Tasks</em>}'.
@@ -786,6 +786,14 @@ public interface TaskPackage extends EPackage {
 		EAttribute USER__DATE_OF_BIRTH = eINSTANCE.getUser_DateOfBirth();
 
 		/**
+		 * The meta object literal for the '<em><b>Email</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute USER__EMAIL = eINSTANCE.getUser_Email();
+
+		/**
 		 * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -808,14 +816,6 @@ public interface TaskPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute USER__NATIONALITY = eINSTANCE.getUser_Nationality();
-
-		/**
-		 * The meta object literal for the '<em><b>EMails</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute USER__EMAILS = eINSTANCE.getUser_EMails();
 
 		/**
 		 * The meta object literal for the '<em><b>Tasks</b></em>' reference list feature.

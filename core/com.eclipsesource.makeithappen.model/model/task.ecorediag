@@ -75,10 +75,6 @@
         <element xmi:type="ecore:EAttribute" href="task.ecore#//User/dateOfBirth"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_S16XdDy-EeO16cFv6spH1w"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_S16XdTy-EeO16cFv6spH1w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="task.ecore#//User/eMails"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_S16Xdjy-EeO16cFv6spH1w"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_S137Mjy-EeO16cFv6spH1w"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_S137Mzy-EeO16cFv6spH1w"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_S137NDy-EeO16cFv6spH1w"/>

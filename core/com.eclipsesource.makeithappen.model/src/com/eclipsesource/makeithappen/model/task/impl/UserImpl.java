@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -37,7 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.UserImpl#getHeigth <em>Heigth</em>}</li>
  *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.UserImpl#getNationality <em>Nationality</em>}</li>
  *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.UserImpl#getDateOfBirth <em>Date Of Birth</em>}</li>
- *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.UserImpl#getEMails <em>EMails</em>}</li>
+ *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.UserImpl#getEmail <em>Email</em>}</li>
  *   <li>{@link com.eclipsesource.makeithappen.model.task.impl.UserImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  * </p>
@@ -226,14 +225,24 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	protected XMLGregorianCalendar dateOfBirth = DATE_OF_BIRTH_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getEMails() <em>EMails</em>}' attribute list.
+	 * The default value of the '{@link #getEmail() <em>Email</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEMails()
+	 * @see #getEmail()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> eMails;
+	protected static final String EMAIL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEmail() <em>Email</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmail()
+	 * @generated
+	 * @ordered
+	 */
+	protected String email = EMAIL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' reference list.
@@ -395,6 +404,27 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEmail(String newEmail) {
+		String oldEmail = email;
+		email = newEmail;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.USER__EMAIL, oldEmail, email));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public double getWeight() {
 		return weight;
 	}
@@ -451,18 +481,6 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 		nationality = newNationality == null ? NATIONALITY_EDEFAULT : newNationality;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.USER__NATIONALITY, oldNationality, nationality));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<String> getEMails() {
-		if (eMails == null) {
-			eMails = new EDataTypeUniqueEList<String>(String.class, this, TaskPackage.USER__EMAILS);
-		}
-		return eMails;
 	}
 
 	/**
@@ -532,8 +550,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 				return getNationality();
 			case TaskPackage.USER__DATE_OF_BIRTH:
 				return getDateOfBirth();
-			case TaskPackage.USER__EMAILS:
-				return getEMails();
+			case TaskPackage.USER__EMAIL:
+				return getEmail();
 			case TaskPackage.USER__TASKS:
 				return getTasks();
 		}
@@ -576,9 +594,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 			case TaskPackage.USER__DATE_OF_BIRTH:
 				setDateOfBirth((XMLGregorianCalendar)newValue);
 				return;
-			case TaskPackage.USER__EMAILS:
-				getEMails().clear();
-				getEMails().addAll((Collection<? extends String>)newValue);
+			case TaskPackage.USER__EMAIL:
+				setEmail((String)newValue);
 				return;
 			case TaskPackage.USER__TASKS:
 				getTasks().clear();
@@ -623,8 +640,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 			case TaskPackage.USER__DATE_OF_BIRTH:
 				setDateOfBirth(DATE_OF_BIRTH_EDEFAULT);
 				return;
-			case TaskPackage.USER__EMAILS:
-				getEMails().clear();
+			case TaskPackage.USER__EMAIL:
+				setEmail(EMAIL_EDEFAULT);
 				return;
 			case TaskPackage.USER__TASKS:
 				getTasks().clear();
@@ -659,8 +676,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 				return nationality != NATIONALITY_EDEFAULT;
 			case TaskPackage.USER__DATE_OF_BIRTH:
 				return DATE_OF_BIRTH_EDEFAULT == null ? dateOfBirth != null : !DATE_OF_BIRTH_EDEFAULT.equals(dateOfBirth);
-			case TaskPackage.USER__EMAILS:
-				return eMails != null && !eMails.isEmpty();
+			case TaskPackage.USER__EMAIL:
+				return EMAIL_EDEFAULT == null ? email != null : !EMAIL_EDEFAULT.equals(email);
 			case TaskPackage.USER__TASKS:
 				return tasks != null && !tasks.isEmpty();
 		}
@@ -695,8 +712,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 		result.append(nationality);
 		result.append(", dateOfBirth: ");
 		result.append(dateOfBirth);
-		result.append(", eMails: ");
-		result.append(eMails);
+		result.append(", email: ");
+		result.append(email);
 		result.append(')');
 		return result.toString();
 	}
