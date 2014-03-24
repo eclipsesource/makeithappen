@@ -4,8 +4,11 @@
    <extension
          point="org.eclipse.emf.ecp.ui.view.swt.renderers">
       <renderer
-            element="org.eclipse.emf.ecp.view.spi.group.model.VGroup"
             renderer="com.eclipsesource.makeithappen.view.group.swt.expand.ExpandBarGroupRenderer">
+         <staticTest
+               element="org.eclipse.emf.ecp.view.spi.group.model.VGroup"
+               priority="10">
+         </staticTest>
       </renderer>
    </extension>
 
