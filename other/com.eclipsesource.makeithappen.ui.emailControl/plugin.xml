@@ -2,18 +2,13 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.emf.ecp.edit.controls">
-      <control
-            class="com.eclipsesource.makeithappen.ui.EmailControl"
-            id="com.eclipsesource.makeithappen.ui.emailcontrol">
-         <staticTest
-               priority="4"
-               singleValue="true"
-               supportedClassType="java.lang.String"
-               supportedEObject="com.eclipsesource.makeithappen.model.task.User"
-               supportedFeature="eMails">
-         </staticTest>
-      </control>
+         point="org.eclipse.emf.ecp.ui.view.swt.renderers">
+      <renderer
+            renderer="com.eclipsesource.makeithappen.ui.emailcontrol.EmailControlRenderer">
+         <dynamicTest
+               testClass="com.eclipsesource.makeithappen.ui.emailcontrol.EmailControlRendererTest">
+         </dynamicTest>
+      </renderer>
    </extension>
 
 </plugin>
