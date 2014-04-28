@@ -23,6 +23,7 @@ public class ExpandBarGroupRenderer extends ContainerSWTRenderer<VGroup> {
 
 	@Override
 	protected Composite getComposite(Composite parent) {
+		parent.setBackgroundMode(SWT.INHERIT_FORCE);
 		PGroup group = new PGroup(parent, SWT.SMOOTH);
 		if (getVElement().getName() != null) {
 			group.setText(getVElement().getName());
