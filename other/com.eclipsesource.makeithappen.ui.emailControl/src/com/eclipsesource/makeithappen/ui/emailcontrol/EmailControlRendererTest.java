@@ -9,7 +9,6 @@ import org.eclipse.emf.ecp.view.spi.swt.ECPRendererTester;
 import com.eclipsesource.makeithappen.model.task.TaskPackage;
 
 public class EmailControlRendererTest implements ECPRendererTester {
-
 	
 	public int isApplicableForFeature(EStructuralFeature feature, VElement vElement, ViewModelContext context) {
 		if (feature.equals(TaskPackage.eINSTANCE.getUser_Email())) {

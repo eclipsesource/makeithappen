@@ -1,4 +1,4 @@
-package com.eclipsesource.makeithappen.view.group.swt.expand;
+package com.eclipsesource.makeithappen.view.group.swt.pgroup;
 
 import java.util.Collection;
 
@@ -9,7 +9,7 @@ import org.eclipse.nebula.widgets.pgroup.PGroup;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 
-public class ExpandBarGroupRenderer extends ContainerSWTRenderer<VGroup> {
+public class PGroupRenderer extends ContainerSWTRenderer<VGroup> {
 
 	@Override
 	protected Collection<VContainedElement> getChildren() {
@@ -18,7 +18,7 @@ public class ExpandBarGroupRenderer extends ContainerSWTRenderer<VGroup> {
 
 	@Override
 	protected String getCustomVariant() {
-		return "ExpandGroup";
+		return "PGroup";
 	}
 
 	@Override
@@ -29,8 +29,6 @@ public class ExpandBarGroupRenderer extends ContainerSWTRenderer<VGroup> {
 			group.setText(getVElement().getName());
 		}
 		return group;
-	}
-
-	
+	}	
 	
 }
